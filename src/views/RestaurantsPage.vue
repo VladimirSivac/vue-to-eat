@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import NewRestaurantForm from '../components/NewRestaurantForm.vue'
 import RestaurantCard from '../components/RestaurantCard.vue'
 import SideMenu from '../components/SideMenu.vue'
@@ -10,6 +11,10 @@ import { useRestaurantStore } from '@/stores/RestaurantStore'
 // Restaurant Module
 
 const restaurantStore = useRestaurantStore()
+
+const { numberOfRestaurants } = storeToRefs(restaurantStore)
+
+const { deleteRestaurant } = restaurantStore
 
 const restaurantList = restaurantStore.list
 

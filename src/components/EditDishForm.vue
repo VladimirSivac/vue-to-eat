@@ -15,8 +15,7 @@ const emits = defineEmits<{
   (e: 'cancel-edit-dish'): void
 }>()
 
-// Todo: fix types
-const targetDish = props.dishId ? dishStore.getDishById(props.dishId) : ''
+const targetDish = props.dishId ? dishStore.getDishById(props.dishId) : undefined
 
 const newDish = ref<Dish>({
   id: uuidv4(),
@@ -26,7 +25,9 @@ const newDish = ref<Dish>({
 })
 
 const updateDish = () => {
-  targetDish.name = newDish.value.name
+  if (targetDish) {
+    targetDish.name = newDish.value.name
+  }
 }
 
 const elDishNameInput = ref<HTMLInputElement | null>(null)

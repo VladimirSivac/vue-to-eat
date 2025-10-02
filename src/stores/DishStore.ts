@@ -27,7 +27,7 @@ export const useDishStore = defineStore('DishStore', {
   }),
   getters: {
     getDishById: (state) => {
-      return (editDishId: string): Dish => {
+      return (editDishId: string): Dish | undefined => {
         return state.list.filter((dish: Dish) => dish.id === editDishId)[0]
       }
     },

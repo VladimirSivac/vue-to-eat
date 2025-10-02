@@ -5,14 +5,11 @@ export default {
   components: {
     TheNavbar,
   },
-  data: () => ({
-    tagline: 'Test String',
-  }),
 }
 </script>
 
 <template>
-  <TheNavbar :tagline="tagline" />
+  <TheNavbar />
   <RouterView />
 </template>
 
